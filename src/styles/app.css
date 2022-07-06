@@ -34,7 +34,7 @@ li {
   border: solid black;
   display: flex;
   width: 50%;
-  height: 45rem;
+  height: 80%;
   flex-flow: column;
   justify-content: space-between;
 }
@@ -57,4 +57,17 @@ input {
 
 #new-meesage-input {
   width: 80%;
+}
+
+
+.message-profile-pic{
+  width: 10%;
+  height: 10%;
+
+}
+
+.message-box {
+  display: flex;
+  flex-direction: column;
+  text-align: initial;
 }
