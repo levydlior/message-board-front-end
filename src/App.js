@@ -2,6 +2,7 @@ import "./styles/app.css";
 import { useEffect, useState } from "react";
 import Main from "./components/Main";
 import Header from "./components/Header";
+import { Route, Switch } from "react-router-dom";
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -16,7 +17,14 @@ function App() {
   return (
     <div className="App">
      <Header />
+     <Switch>
+      <Route exact path='/'>
       <Main messages={messages} />
+      </Route>
+      <Route path='*'>
+        <h1>Error - wrong address</h1>
+      </Route>
+      </Switch>
     </div>
   );
 }
