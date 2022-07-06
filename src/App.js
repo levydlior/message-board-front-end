@@ -1,6 +1,7 @@
 import "./styles/app.css";
 import { useEffect, useState } from "react";
 import Main from "./components/Main";
+import Header from "./components/Header";
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -10,25 +11,11 @@ function App() {
       .then((r) => r.json())
       .then((messages) => setMessages(messages));
   }, []);
-console.log(messages)
-
-
-
+  console.log(messages);
 
   return (
     <div className="App">
-      <header id="header">
-        <div id="logo">
-          <h1>Leave a message!</h1>
-        </div>
-        <nav>
-          <ul id="head-ul">
-            <li>hi</li>
-            <li>hi</li>
-            <li>hi</li>
-          </ul>
-        </nav>
-      </header>
+     <Header />
       <Main messages={messages} />
     </div>
   );
