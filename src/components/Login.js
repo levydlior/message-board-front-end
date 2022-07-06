@@ -1,21 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Login({onInfoChange, formLogIn}) {
-function handleChange(e){
-    const target = e.target.name
-    const value = e.target.value
-    onInfoChange(target, value)
-}
+function Login({ onInfoChange, formLogIn, onLogin, onLoginSubmit }) {
+  const [validLogin, setValidLogin] = useState(true);
+  function handleChange(e) {
+    const target = e.target.name;
+    const value = e.target.value;
+    onInfoChange(target, value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    fetch("http://localhost:9292/user/login", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        accept: "application/json",
+      },
+      body: JSON.stringify(formLogIn),
+    })
+      .then((r) => r.json())
+      .then((user) => {
+        onLoginSubmit()
+        if (!user) {
+            setValidLogin(false)
+        } else {
+          onLogin(user);
+        }
+      });
+  }
 
   return (
-    <form>
-        <h2>Login:</h2>
+    <form onSubmit={handleSubmit}>
+      <h2>Login:</h2>
       <label for="login-userName">User Name:</label>
       <input
-        name="user_name"
+        name="userName"
         type="text"
         required
-        value={formLogIn.user_name}
+        value={formLogIn.userName}
         onChange={handleChange}
       />
       <label for="login-password">Password:</label>
@@ -27,6 +50,11 @@ function handleChange(e){
         onChange={handleChange}
       />
       <input type="submit" value="Login" />
+      {validLogin ? null : (
+        <h3 style={{ color: "red" }}>
+          Invalid user name or password
+        </h3>
+      )}
     </form>
   );
 }
