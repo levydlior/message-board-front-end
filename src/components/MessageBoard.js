@@ -2,7 +2,7 @@ import React from 'react'
 import PostMessage from './PostMessage';
 import MessagesList from './MessagesList';
 
-function MessageBoard({messages}) {
+function MessageBoard({messages, loggedIn}) {
 
 
   return (
@@ -12,7 +12,7 @@ function MessageBoard({messages}) {
     <MessagesList messages={messages}/>
     </div>
     <div id="add-message">
-    <PostMessage />
+    <PostMessage loggedIn={loggedIn} />
     </div>
   </div>
   )

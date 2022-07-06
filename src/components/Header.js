@@ -1,13 +1,13 @@
 import React from "react";
 import NavBar from "./NavBar";
 
-function Header() {
+function Header({loggedIn}) {
   return (
     <header id="header">
       <div id="logo">
         <h1>Leave a message!</h1>
       </div>
-      <NavBar />
+      <NavBar loggedIn={loggedIn}/>
     </header>
   );
 }
