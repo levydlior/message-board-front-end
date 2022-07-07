@@ -1,13 +1,14 @@
 import React from "react";
 import Message from "./Message";
 
-function MessagesList({ messages, loggedInUser, onDeleteMessage }) {
+function MessagesList({ messages, loggedInUser, onDeleteMessage, onEditSubmit }) {
   const displayMessages = messages.map((message) => (
     <Message
       message={message}
       key={message.id}
       loggedInUser={loggedInUser}
       onDeleteMessage={onDeleteMessage}
+      onEditSubmit={onEditSubmit}
     />
   ));
 

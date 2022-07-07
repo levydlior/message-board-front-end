@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PostMessage from "./PostMessage";
 import MessagesList from "./MessagesList";
 
-function MessageBoard({ loggedIn, loggedInUser, onDeleteMessage }) {
+function MessageBoard({ loggedIn, loggedInUser }) {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -15,12 +15,24 @@ function MessageBoard({ loggedIn, loggedInUser, onDeleteMessage }) {
     const updatedMessages = messages.filter(
       (message) => message.id !== deletedMessage.id
     );
-    setMessages(updatedMessages)
+    setMessages(updatedMessages);
   }
 
   function hanldeNewPostSubmit(post) {
     const updatedMessages = [...messages, post];
     setMessages(updatedMessages);
+  }
+
+  function handleEditSubmit(updatedMessage) {
+    const updatesMessages = messages.map((message) => {
+      if (updatedMessage.id == message.id) {
+        return updatedMessage;
+      } else {
+        return message;
+      }
+    });
+
+    setMessages(updatesMessages);
   }
 
   return (
@@ -31,6 +43,7 @@ function MessageBoard({ loggedIn, loggedInUser, onDeleteMessage }) {
           messages={messages}
           loggedInUser={loggedInUser}
           onDeleteMessage={handleMessageDelete}
+          onEditSubmit={handleEditSubmit}
         />
       </div>
       <div id="add-message">
