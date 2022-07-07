@@ -11,10 +11,10 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
     avatarUrl: "",
   });
 
-  function handleLogoutClick(){
-    setCreatedAccount(false)
-    resetInputs()
-    onLogOut()
+  function handleLogoutClick() {
+    setCreatedAccount(false);
+    resetInputs();
+    onLogOut();
   }
 
   function resetInputs() {
@@ -57,7 +57,14 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
   );
   return (
     <div id="login-account">
-      {!loggedIn ? createOrLogin : <h2>Welcome {loggedInUser.userName}! <button onClick={handleLogoutClick}>Logout</button></h2>}
+      {!loggedIn ? (
+        createOrLogin
+      ) : (
+        <h2>
+          Welcome {loggedInUser.userName}!{" "}
+          <button onClick={handleLogoutClick}>Logout</button>
+        </h2>
+      )}
     </div>
   );
 }

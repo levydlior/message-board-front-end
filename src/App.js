@@ -1,5 +1,5 @@
 import "./styles/app.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MessageBoard from "./components/MessageBoard";
 import Header from "./components/Header";
 import { Route, Switch } from "react-router-dom";

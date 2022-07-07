@@ -15,19 +15,15 @@ function Message({ message, loggedInUser, onDeleteMessage, onEditSubmit }) {
   }
   const timestamp = new Date(message.created_at).toLocaleTimeString();
 
-  function handleEditButtonClick(){
-    setEditMode(!editMode) 
-    setEditInputValue({content: message.content})
+  function handleEditButtonClick() {
+    setEditMode(!editMode);
+    setEditInputValue({ content: message.content });
   }
-
 
   function icons() {
     return (
       <>
-        <AiTwotoneEdit
-          className="icons"
-          onClick={handleEditButtonClick}
-        />
+        <AiTwotoneEdit className="icons" onClick={handleEditButtonClick} />
         <AiTwotoneDelete className="icons" onClick={handleDelete} />
       </>
     );
@@ -41,20 +37,21 @@ function Message({ message, loggedInUser, onDeleteMessage, onEditSubmit }) {
     });
   }
 
-  function handleEditSubmit(e){
-    e.preventDefault()
+  function handleEditSubmit(e) {
+    e.preventDefault();
     fetch(`http://localhost:9292/message/update/${message.id}`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: {
-        'content-type': 'application/json',
-        'accept': 'application/json'
+        "content-type": "application/json",
+        accept: "application/json",
       },
-      body: JSON.stringify(editInputValue)
-    }).then(r => r.json())
-      .then(updatedMessage => {
-        setEditMode(false)
-        onEditSubmit(updatedMessage)
-      })
+      body: JSON.stringify(editInputValue),
+    })
+      .then((r) => r.json())
+      .then((updatedMessage) => {
+        setEditMode(false);
+        onEditSubmit(updatedMessage);
+      });
   }
 
   const editForm = (
