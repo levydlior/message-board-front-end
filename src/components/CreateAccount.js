@@ -5,6 +5,7 @@ function CreateAccount({
   formLogIn,
   createdAccount,
   onCreatedAccount,
+  onChangeViewClick,
 }) {
   const [existedUserName, setExistedUserName] = useState(false);
   function handleChange(e) {
@@ -37,43 +38,49 @@ function CreateAccount({
   function displayCreateAccount() {
     if (!createdAccount) {
       return (
-        <form onSubmit={handleSubmit}>
-          <h2>Create An Account:</h2>
-          <label for="login-userName">User Name:</label>
-          <input
-            name="userName"
-            type="text"
-            required
-            value={formLogIn.user_name}
-            onChange={handleChange}
-          />
-          {existedUserName ? (
-            <h3 style={{ color: "red" }}>
-              User Name already exists please choose another
-            </h3>
-          ) : null}
-          <label for="login-password">Password:</label>
-          <input
-            name="password"
-            type="password"
-            required
-            value={formLogIn.password}
-            onChange={handleChange}
-          />
-          <label for="avatar_url">Avatar:</label>
-          <input
-            placeholder="Image Url"
-            name="avatarUrl"
-            type="text"
-            required
-            value={formLogIn.avatar_url}
-            onChange={handleChange}
-          />
-          <input type="submit" value="Create account" />
-        </form>
+        <>
+          <form onSubmit={handleSubmit}>
+            <h2>Create An Account:</h2>
+            <label for="login-userName">User Name:</label>
+            <input
+              name="userName"
+              type="text"
+              required
+              value={formLogIn.user_name}
+              onChange={handleChange}
+            />
+            {existedUserName ? (
+              <h3 style={{ color: "red" }}>
+                User Name already exists please choose another
+              </h3>
+            ) : null}
+            <label for="login-password">Password:</label>
+            <input
+              name="password"
+              type="password"
+              required
+              value={formLogIn.password}
+              onChange={handleChange}
+            />
+            <label for="avatar_url">Avatar:</label>
+            <input
+              placeholder="Image Url"
+              name="avatarUrl"
+              type="text"
+              required
+              value={formLogIn.avatar_url}
+              onChange={handleChange}
+            />
+            <input type="submit" value="Create account" />
+          </form>
+          <h2>
+            already have an account?{" "}
+            <button onClick={() => onChangeViewClick()}>Login</button>
+          </h2>
+        </>
       );
     } else {
-      return <h2> account Created -- please login!</h2>;
+      return <h2> account Created -- please login! <button onClick={() => onChangeViewClick()}>Login</button></h2>;
     }
   }
 

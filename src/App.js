@@ -7,7 +7,7 @@ import LoginCreateAccount from "./components/LoginCreateAccount";
 
 function App() {
   const [messages, setMessages] = useState([]);
-  const [loggedIn, setLoggedIn] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({
     userName: "",
     userId: "",
@@ -36,7 +36,7 @@ function App() {
             <MessageBoard messages={messages} loggedIn={loggedIn} />
           </Route>
           <Route exact path="/create-login">
-            <LoginCreateAccount onLogin={handleLogin} />
+            <LoginCreateAccount onLogin={handleLogin} loggedIn={loggedIn} loggedInUser={loggedInUser} />
           </Route>
           <Route path="*">
             <h1>Error - wrong address</h1>

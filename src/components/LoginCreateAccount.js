@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import CreateAccount from "./CreateAccount";
 import Login from "./Login";
 
-function LoginCreateAccount({ onLogin }) {
-  const [display, setDisplay] = useState(false);
+function LoginCreateAccount({ onLogin, loggedIn, loggedInUser }) {
+  const [display, setDisplay] = useState(true);
   const [createdAccount, setCreatedAccount] = useState(false);
   const [formLogIn, setFormLogin] = useState({
     userName: "",
@@ -37,6 +37,7 @@ function LoginCreateAccount({ onLogin }) {
       formLogIn={formLogIn}
       onLogin={onLogin}
       onLoginSubmit={hanldeLoginSubmit}
+      onChangeViewClick={() => setDisplay(false)}
     />
   ) : (
     <CreateAccount
@@ -44,24 +45,13 @@ function LoginCreateAccount({ onLogin }) {
       formLogIn={formLogIn}
       createdAccount={createdAccount}
       onCreatedAccount={handleCreateSubmit}
+      onChangeViewClick={() => setDisplay(true)}
     />
   );
   return (
-    <div id="login-account">
-      {createOrLogin}
-      {display ? (
-        <h2>
-          Dont have an account?{" "}
-          <button onClick={() => setDisplay(false)}>Create an account</button>
-        </h2>
-      ) : (
-        <h2>
-          already have an account?{" "}
-          <button onClick={() => setDisplay(true)}>Login</button>
-        </h2>
-      )}
-    </div>
-  );
+  <div id="login-account">
+    {!loggedIn? createOrLogin : <h2>Welcome {loggedInUser.userName}!</h2> }
+    </div>)
 }
 
 export default LoginCreateAccount;

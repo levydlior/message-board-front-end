@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
-function Login({ onInfoChange, formLogIn, onLogin, onLoginSubmit }) {
+function Login({
+  onInfoChange,
+  formLogIn,
+  onLogin,
+  onLoginSubmit,
+  onChangeViewClick,
+}) {
   const [validLogin, setValidLogin] = useState(true);
   function handleChange(e) {
     const target = e.target.name;
@@ -21,9 +27,9 @@ function Login({ onInfoChange, formLogIn, onLogin, onLoginSubmit }) {
     })
       .then((r) => r.json())
       .then((user) => {
-        onLoginSubmit()
+        onLoginSubmit();
         if (!user) {
-            setValidLogin(false)
+          setValidLogin(false);
         } else {
           onLogin(user);
         }
@@ -31,31 +37,35 @@ function Login({ onInfoChange, formLogIn, onLogin, onLoginSubmit }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login:</h2>
-      <label for="login-userName">User Name:</label>
-      <input
-        name="userName"
-        type="text"
-        required
-        value={formLogIn.userName}
-        onChange={handleChange}
-      />
-      <label for="login-password">Password:</label>
-      <input
-        name="password"
-        type="password"
-        required
-        value={formLogIn.password}
-        onChange={handleChange}
-      />
-      <input type="submit" value="Login" />
-      {validLogin ? null : (
-        <h3 style={{ color: "red" }}>
-          Invalid user name or password
-        </h3>
-      )}
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <h2>Login:</h2>
+        <label for="login-userName">User Name:</label>
+        <input
+          name="userName"
+          type="text"
+          required
+          value={formLogIn.userName}
+          onChange={handleChange}
+        />
+        <label for="login-password">Password:</label>
+        <input
+          name="password"
+          type="password"
+          required
+          value={formLogIn.password}
+          onChange={handleChange}
+        />
+        <input type="submit" value="Login" />
+        {validLogin ? null : (
+          <h3 style={{ color: "red" }}>Invalid user name or password</h3>
+        )}
+      </form>
+      <h2>
+        Dont have an account?{" "}
+        <button onClick={() => onChangeViewClick()}>Create an account</button>
+      </h2>
+    </>
   );
 }
 
