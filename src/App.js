@@ -6,10 +6,10 @@ import { Route, Switch } from "react-router-dom";
 import LoginCreateAccount from "./components/LoginCreateAccount";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [loggedInUser, setLoggedInUser] = useState({
     userName: "",
-    userId: "",
+    userId: 6,
   });
 
   function handleLogin(user) {
