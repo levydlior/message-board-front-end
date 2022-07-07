@@ -86,3 +86,7 @@ a{
   flex-flow: column;
   justify-content: space-between;
 }
+
+.icons:hover {
+  transform: scale(1.3);
+}

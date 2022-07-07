@@ -24,7 +24,7 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser }) {
     resetInputs();
   }
 
-  function hanldeLoginSubmit() {
+  function hanldeResetForm() {
     resetInputs();
   }
 
@@ -36,7 +36,7 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser }) {
       onInfoChange={handleChange}
       formLogIn={formLogIn}
       onLogin={onLogin}
-      onLoginSubmit={hanldeLoginSubmit}
+      onLoginSubmit={hanldeResetForm}
       onChangeViewClick={() => setDisplay(false)}
     />
   ) : (
@@ -46,12 +46,14 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser }) {
       createdAccount={createdAccount}
       onCreatedAccount={handleCreateSubmit}
       onChangeViewClick={() => setDisplay(true)}
+      OnresetInputs={hanldeResetForm}
     />
   );
   return (
-  <div id="login-account">
-    {!loggedIn? createOrLogin : <h2>Welcome {loggedInUser.userName}!</h2> }
-    </div>)
+    <div id="login-account">
+      {!loggedIn ? createOrLogin : <h2>Welcome {loggedInUser.userName}!</h2>}
+    </div>
+  );
 }
 
 export default LoginCreateAccount;
