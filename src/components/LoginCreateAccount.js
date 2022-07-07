@@ -36,14 +36,14 @@ function LoginCreateAccount({ onLogin }) {
       onInfoChange={handleChange}
       formLogIn={formLogIn}
       onLogin={onLogin}
-      onLoginSubmit={handleCreateSubmit}
+      onLoginSubmit={hanldeLoginSubmit}
     />
   ) : (
     <CreateAccount
       onInfoChange={handleChange}
       formLogIn={formLogIn}
       createdAccount={createdAccount}
-      onCreatedAccount={hanldeLoginSubmit}
+      onCreatedAccount={handleCreateSubmit}
     />
   );
   return (
