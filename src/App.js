@@ -9,17 +9,14 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({
     userName: "",
-    userId: '',
+    userId: "",
   });
-
- 
 
   function handleLogin(user) {
     console.log(user);
     setLoggedIn(true);
     setLoggedInUser({ userName: user.user_name, userId: user.id });
   }
-
 
   return (
     <div className="App">
@@ -30,7 +27,11 @@ function App() {
             <MessageBoard loggedIn={loggedIn} loggedInUser={loggedInUser} />
           </Route>
           <Route exact path="/create-login">
-            <LoginCreateAccount onLogin={handleLogin} loggedIn={loggedIn} loggedInUser={loggedInUser} />
+            <LoginCreateAccount
+              onLogin={handleLogin}
+              loggedIn={loggedIn}
+              loggedInUser={loggedInUser}
+            />
           </Route>
           <Route path="*">
             <h1>Error - wrong address</h1>

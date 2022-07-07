@@ -6,6 +6,7 @@ function CreateAccount({
   createdAccount,
   onCreatedAccount,
   onChangeViewClick,
+  OnresetInputs
 }) {
   const [existedUserName, setExistedUserName] = useState(false);
   function handleChange(e) {
@@ -16,7 +17,7 @@ function CreateAccount({
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formLogIn);
+    OnresetInputs()
     fetch("http://localhost:9292/user/create", {
       method: "POST",
       headers: {
@@ -34,6 +35,7 @@ function CreateAccount({
         }
       });
   }
+  console.log(formLogIn);
 
   function displayCreateAccount() {
     if (!createdAccount) {
@@ -74,7 +76,7 @@ function CreateAccount({
             <input type="submit" value="Create account" />
           </form>
           <h2>
-            already have an account?{" "}
+            already have an account?
             <button onClick={() => onChangeViewClick()}>Login</button>
           </h2>
         </>

@@ -20,7 +20,7 @@ setMessages(updatedMessages)
     <div id="message-board">
       <h2> Messages:</h2>
       <div id="messages-display">
-        <MessagesList messages={messages} />
+        <MessagesList messages={messages} loggedInUser={loggedInUser} />
       </div>
       <div id="add-message">
         <PostMessage loggedIn={loggedIn} loggedInUser={loggedInUser} onNewPostSubmit={hanldeNewPostSubmit} />
