@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PostMessage from "./PostMessage";
 import MessagesList from "./MessagesList";
 
-function MessageBoard({ loggedIn, loggedInUser }) {
+function MessageBoard({ loggedIn, loggedInUser, onDeleteMessage }) {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -11,19 +11,34 @@ function MessageBoard({ loggedIn, loggedInUser }) {
       .then((messages) => setMessages(messages));
   }, []);
 
-  function hanldeNewPostSubmit(post){
-const updatedMessages = [...messages, post]
-setMessages(updatedMessages)
+  function handleMessageDelete(deletedMessage) {
+    const updatedMessages = messages.filter(
+      (message) => message.id !== deletedMessage.id
+    );
+    setMessages(updatedMessages)
+  }
+
+  function hanldeNewPostSubmit(post) {
+    const updatedMessages = [...messages, post];
+    setMessages(updatedMessages);
   }
 
   return (
     <div id="message-board">
       <h2> Messages:</h2>
       <div id="messages-display">
-        <MessagesList messages={messages} loggedInUser={loggedInUser} />
+        <MessagesList
+          messages={messages}
+          loggedInUser={loggedInUser}
+          onDeleteMessage={handleMessageDelete}
+        />
       </div>
       <div id="add-message">
-        <PostMessage loggedIn={loggedIn} loggedInUser={loggedInUser} onNewPostSubmit={hanldeNewPostSubmit} />
+        <PostMessage
+          loggedIn={loggedIn}
+          loggedInUser={loggedInUser}
+          onNewPostSubmit={hanldeNewPostSubmit}
+        />
       </div>
     </div>
   );

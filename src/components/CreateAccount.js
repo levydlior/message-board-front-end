@@ -35,7 +35,6 @@ function CreateAccount({
         }
       });
   }
-  console.log(formLogIn);
 
   function displayCreateAccount() {
     if (!createdAccount) {

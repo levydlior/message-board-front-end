@@ -1,12 +1,21 @@
 import React from "react";
 import { AiTwotoneEdit, AiTwotoneDelete } from "react-icons/ai";
 
-function Message({ message, loggedInUser }) {
+function Message({ message, loggedInUser, onDeleteMessage }) {
+
+  function handleDelete(){
+    fetch(`http://localhost:9292//message/delete/${message.id}`, {
+      method: 'DELETE'
+    }).then(r => r.json())
+      .then(deletedMessage => onDeleteMessage(deletedMessage))
+
+  }
+
   function icons() {
     return (
       <>
         <AiTwotoneEdit className="icons" />
-        <AiTwotoneDelete className="icons" />
+        <AiTwotoneDelete className="icons" onClick={handleDelete}/>
       </>
     );
   }
