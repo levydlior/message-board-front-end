@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CreateAccount from "./CreateAccount";
 import Login from "./Login";
 
-function LoginCreateAccount({ onLogin, loggedIn, loggedInUser }) {
+function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
   const [display, setDisplay] = useState(true);
   const [createdAccount, setCreatedAccount] = useState(false);
   const [formLogIn, setFormLogin] = useState({
@@ -10,6 +10,12 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser }) {
     password: "",
     avatarUrl: "",
   });
+
+  function handleLogoutClick(){
+    setCreatedAccount(false)
+    resetInputs()
+    onLogOut()
+  }
 
   function resetInputs() {
     setFormLogin({
@@ -51,7 +57,7 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser }) {
   );
   return (
     <div id="login-account">
-      {!loggedIn ? createOrLogin : <h2>Welcome {loggedInUser.userName}!</h2>}
+      {!loggedIn ? createOrLogin : <h2>Welcome {loggedInUser.userName}! <button onClick={handleLogoutClick}>Logout</button></h2>}
     </div>
   );
 }

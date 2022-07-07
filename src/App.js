@@ -6,16 +6,23 @@ import { Route, Switch } from "react-router-dom";
 import LoginCreateAccount from "./components/LoginCreateAccount";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({
     userName: "",
-    userId: 6,
+    userId: "",
   });
 
   function handleLogin(user) {
-    console.log(user);
     setLoggedIn(true);
     setLoggedInUser({ userName: user.user_name, userId: user.id });
+  }
+
+  function handleLogOut() {
+    setLoggedIn(false);
+    setLoggedInUser({
+      userName: "",
+      userId: "",
+    });
   }
 
   return (
@@ -31,6 +38,7 @@ function App() {
               onLogin={handleLogin}
               loggedIn={loggedIn}
               loggedInUser={loggedInUser}
+              onLogOut={handleLogOut}
             />
           </Route>
           <Route path="*">
