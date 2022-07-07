@@ -6,18 +6,13 @@ import { Route, Switch } from "react-router-dom";
 import LoginCreateAccount from "./components/LoginCreateAccount";
 
 function App() {
-  const [messages, setMessages] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({
     userName: "",
-    userId: "",
+    userId: '',
   });
 
-  useEffect(() => {
-    fetch("http://localhost:9292/message_board")
-      .then((r) => r.json())
-      .then((messages) => setMessages(messages));
-  }, []);
+ 
 
   function handleLogin(user) {
     console.log(user);
@@ -25,7 +20,6 @@ function App() {
     setLoggedInUser({ userName: user.user_name, userId: user.id });
   }
 
-  console.log(loggedInUser);
 
   return (
     <div className="App">
@@ -33,7 +27,7 @@ function App() {
       <main id="main">
         <Switch>
           <Route exact path="/">
-            <MessageBoard messages={messages} loggedIn={loggedIn} />
+            <MessageBoard loggedIn={loggedIn} loggedInUser={loggedInUser} />
           </Route>
           <Route exact path="/create-login">
             <LoginCreateAccount onLogin={handleLogin} loggedIn={loggedIn} loggedInUser={loggedInUser} />
