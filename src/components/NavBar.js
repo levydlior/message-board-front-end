@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 
 function NavBar({ loggedIn }) {
   const displayLink = loggedIn ? (
-    <NavLink className="nav-links" exact to="/account">
-      My Account
+    <NavLink className="nav-links" exact to="/my-profile">
+      My Profile
     </NavLink>
   ) : null;
 
@@ -21,7 +21,7 @@ function NavBar({ loggedIn }) {
           </NavLink>
         ) : (
           <NavLink className="nav-links" exact to="/create-login">
-            To Logout
+           Logout
           </NavLink>
         )}
       </ul>

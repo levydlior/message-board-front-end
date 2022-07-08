@@ -40,7 +40,7 @@ function Login({
     <>
       <form onSubmit={handleSubmit}>
         <h2>Login:</h2>
-        <label for="login-userName">User Name:</label>
+        <label htmlFor="login-userName">User Name:</label>
         <input
           name="userName"
           type="text"
@@ -48,7 +48,7 @@ function Login({
           value={formLogIn.userName}
           onChange={handleChange}
         />
-        <label for="login-password">Password:</label>
+        <label htmlFor="login-password">Password:</label>
         <input
           name="password"
           type="password"

@@ -90,3 +90,16 @@ a{
 .icons:hover {
   transform: scale(1.3);
 }
+
+#profile-section {
+  border: solid black;
+  display: flex;
+  width: 50%;
+  height: 80%;
+  flex-flow: column;
+  align-items: center;}
+
+  #profile-img{
+    width: 50%;
+    height: 50%;
+  }
