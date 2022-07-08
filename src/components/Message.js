@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { AiTwotoneEdit, AiTwotoneDelete } from "react-icons/ai";
+import {
+  AiTwotoneEdit,
+  AiTwotoneDelete,
+  AiOutlineClose,
+} from "react-icons/ai";
 
 function Message({ message, loggedInUser, onDeleteMessage, onEditSubmit }) {
   const [editMode, setEditMode] = useState(false);
@@ -23,7 +27,14 @@ function Message({ message, loggedInUser, onDeleteMessage, onEditSubmit }) {
   function icons() {
     return (
       <>
-        <AiTwotoneEdit className="icons" onClick={handleEditButtonClick} />
+        {!editMode ? (
+          <AiTwotoneEdit className="icons" onClick={handleEditButtonClick} />
+        ) : (
+          <AiOutlineClose
+            className="icons"
+            onClick={handleEditButtonClick}
+          />
+        )}
         <AiTwotoneDelete className="icons" onClick={handleDelete} />
       </>
     );
