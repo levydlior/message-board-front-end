@@ -70,6 +70,7 @@ function Login({
       <div className="have-an-account-login">
         <h3 style={{ margin: "2rem" }}>Dont have an account? </h3>
         <Button
+        sx={{ borderColor: "black", color: 'black' }}
           size="small"
           variant="outlined"
           onClick={() => onChangeViewClick()}

@@ -8,7 +8,7 @@
 
 body {
   height: 100%;
-  background-color: #f6efe8;
+  background-color: #e9d9c9;
 
 }
 
@@ -58,7 +58,7 @@ li {
   justify-content: center;
   text-align: center;
   padding: 0.5rem;
-  background-color: #f6efe8;
+  background-color: ##e9d9c9;
   margin: 0rem;
   height: 100%;
   margin: 2rem;
@@ -86,7 +86,7 @@ li {
   padding: 0.5rem;
   width: 100%;
   border-top: solid black 1px;
-  margin-bottom: 1rem
+  background-color: #8c8883;
 }
 
 input {
@@ -139,7 +139,7 @@ a {
   flex-flow: column;
   align-items: center;
   background-color: white;
-  padding: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 #prfile-img-div {
@@ -194,7 +194,7 @@ input {
 }
 
 .content-title {
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   margin-top: 1rem;
 }
 
@@ -243,4 +243,22 @@ input {
 
 p{
   word-break: break-all;
+}
+
+ul{
+  margin: 0;
+  padding-inline: 3rem;
+  padding-bottom: 1rem;
+}
+
+.section-title-div{
+  border-bottom: solid 1px black;
+  margin-bottom: 1rem;
+  width: 100%;
+  background-color: #8c8883;
+}
+
+.MuiButton-outlined{
+  border-color: black;
+  color: black
 }

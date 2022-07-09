@@ -57,13 +57,12 @@ function PostMessage({ loggedIn, loggedInUser, onNewPostSubmit }) {
           size="small"
         />
         <Button
-          style={{ marginLeft: "2rem" }}
+          style={{ marginLeft: "2rem", color: 'yellow', borderColor: 'black' }}
           type="submit"
           value="post"
           variant="outlined"
         >
-          {" "}
-          <SendRoundedIcon />{" "}
+          <SendRoundedIcon sx={{color: 'black'}}/>{" "}
         </Button>
       </div>
     </form>
