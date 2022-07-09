@@ -7,10 +7,10 @@ import LoginCreateAccount from "./components/LoginCreateAccount";
 import MyProfile from "./components/MyProfile";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({
-    userName: "Avo",
-    userId: 7,
+    userName: "",
+    userId: ""
   });
 
   function handleLogin(user) {
@@ -25,6 +25,15 @@ function App() {
       userId: "",
     });
   }
+
+  function handleAccountDelete(){
+    setLoggedIn(false)
+    setLoggedInUser({
+      userName: "",
+      userId: '',
+    })
+  }
+
 
   return (
     <div className="App">
@@ -43,7 +52,7 @@ function App() {
             />
           </Route>
           <Route exact path="/my-profile">
-          <MyProfile userId={loggedInUser.userId} />
+          <MyProfile userId={loggedInUser.userId} onAccountDelete={handleAccountDelete} />
           </Route>
           <Route path="*">
             <h1>Error - wrong address</h1>

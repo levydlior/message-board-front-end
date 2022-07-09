@@ -1,17 +1,28 @@
 import React from "react";
-import { AiOutlineClose } from "react-icons/ai";
+import { useHistory } from "react-router-dom";
 
-function DeleteAccount({onCloseClick}) {
+function DeleteAccount({ onCloseClick, onAccountDelete, userId }) {
+  const history = useHistory()
+
+  function handleDeleteClick() {
+    fetch(`http://localhost:9292/user/delete/${userId}`, {
+      method: "DELETE",
+    }).then(r => r.json())
+      .then(()=> {
+        history.push("/create-login")
+        onAccountDelete()})
+
+    
+  }
   return (
-    <form id="delete-account">
-        <div id="delet-exit">
-      <AiOutlineClose className="icons" onClick={() => onCloseClick()} />
-      </div>
+    <div id="delete-account">
+      <div id="delet-exit"></div>
       <h2>Are you sure you want to delete your account?</h2>
       <div>
-        <input type="submit" value="Delete My Account!" />
+        <button onClick={handleDeleteClick}>Delete My Account!</button>
+        <button onClick={() => onCloseClick()}>No</button>
       </div>
-    </form>
+    </div>
   );
 }
 

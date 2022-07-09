@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import { AiTwotoneEdit, AiOutlineClose } from "react-icons/ai";
 import DeleteAccount from "./DeleteAccount";
 
-function MyProfile(loggedInUser) {
+function MyProfile({userId, onAccountDelete}) {
   const [user, setUser] = useState({});
-  const { userId } = loggedInUser;
   const [deleteAccount, setDeleteAccount] = useState(false)
   const [editMode, setEditMode] = useState("");
   const [editForm, setEditForm] = useState({
@@ -88,12 +87,12 @@ function MyProfile(loggedInUser) {
       <div id="prfile-img-div">
         <img src={user.avatar_url} alt="profile avatar" id="profile-img" />
       </div>
-      {!deleteAccount? null : <DeleteAccount onCloseClick={() => setDeleteAccount(false)}/>}
       {editMode === "avatarEdit" ? imageEditForm : null}
       <div id="user-details">
         <h3>{user.user_name}</h3>
       </div>
-      <button onClick={() => setDeleteAccount(true)}>Delete account</button>
+      {!deleteAccount? null : <DeleteAccount userId={userId} onAccountDelete={onAccountDelete}onCloseClick={() => setDeleteAccount(false)}/>}
+      {deleteAccount? null : <button onClick={() => setDeleteAccount(true)}>Delete account</button>}
  
     </div>
   );

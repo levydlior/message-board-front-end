@@ -43,7 +43,10 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
       formLogIn={formLogIn}
       onLogin={onLogin}
       onLoginSubmit={hanldeResetForm}
-      onChangeViewClick={() => setDisplay(false)}
+      onChangeViewClick={() => {
+        setDisplay(false)
+        resetInputs()
+      }}
     />
   ) : (
     <CreateAccount
@@ -51,7 +54,10 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
       formLogIn={formLogIn}
       createdAccount={createdAccount}
       onCreatedAccount={handleCreateSubmit}
-      onChangeViewClick={() => setDisplay(true)}
+      onChangeViewClick={() => {
+        setDisplay(true)
+        resetInputs()
+      }}
       OnresetInputs={hanldeResetForm}
     />
   );
