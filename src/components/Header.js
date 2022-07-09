@@ -1,13 +1,17 @@
 import React from "react";
 import NavBar from "./NavBar";
 
-function Header({loggedIn}) {
+function Header({ loggedIn }) {
   return (
     <header id="header">
-      <div id="logo">
+      <div id="logo-div">
+        <img id="logo"
+          src={require('./../images/boardimg.jpg')}
+          alt="Website logo - message board"
+        />
         <h1>Leave a message!</h1>
       </div>
-      <NavBar loggedIn={loggedIn}/>
+      <NavBar loggedIn={loggedIn} />
     </header>
   );
 }
