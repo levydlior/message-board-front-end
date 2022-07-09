@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import CreateAccount from "./CreateAccount";
 import Login from "./Login";
+import {Button, Alert } from "@mui/material";
+
 
 function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
   const [display, setDisplay] = useState(true);
@@ -44,8 +46,8 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
       onLogin={onLogin}
       onLoginSubmit={hanldeResetForm}
       onChangeViewClick={() => {
-        setDisplay(false)
-        resetInputs()
+        setDisplay(false);
+        resetInputs();
       }}
     />
   ) : (
@@ -55,8 +57,8 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
       createdAccount={createdAccount}
       onCreatedAccount={handleCreateSubmit}
       onChangeViewClick={() => {
-        setDisplay(true)
-        resetInputs()
+        setDisplay(true);
+        resetInputs();
       }}
       OnresetInputs={hanldeResetForm}
     />
@@ -66,10 +68,12 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
       {!loggedIn ? (
         createOrLogin
       ) : (
-        <h2>
-          Welcome {loggedInUser.userName}!{" "}
-          <button onClick={handleLogoutClick}>Logout</button>
-        </h2>
+        <div id='logout-div'>
+          <div style={{display: 'flex', justifyContent: 'center'}}>
+          <Alert severity="success">Welcome {loggedInUser.userName}!</Alert>
+          </div>
+          <Button sx={{marginLeft: 3}} onClick={handleLogoutClick}>Logout</Button>
+        </div>
       )}
     </div>
   );

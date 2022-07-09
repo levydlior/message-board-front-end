@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Input, Button } from "@mui/material";
 
 function PostMessage({ loggedIn, loggedInUser, onNewPostSubmit }) {
   const [postInput, setPostInput] = useState({
@@ -25,7 +26,7 @@ function PostMessage({ loggedIn, loggedInUser, onNewPostSubmit }) {
     })
       .then((r) => r.json())
       .then((post) => {
-        onNewPostSubmit(post)
+        onNewPostSubmit(post);
         setPostInput({
           content: "",
           userId: loggedInUser.userId,
@@ -35,7 +36,7 @@ function PostMessage({ loggedIn, loggedInUser, onNewPostSubmit }) {
 
   const postForm = (
     <form onSubmit={hanldeSubmit}>
-      <h3>Post a message!</h3>
+      <h3 style={{ margin: "1rem" }}> Post a message!</h3>
       <input
         type="text"
         required
@@ -44,7 +45,9 @@ function PostMessage({ loggedIn, loggedInUser, onNewPostSubmit }) {
         value={postInput.content}
         onChange={handleChange}
       />
-      <input type="submit" required value="post" />
+      <input type="submit"
+        value="post"
+      />
     </form>
   );
 

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { AiTwotoneEdit, AiOutlineClose } from "react-icons/ai";
 import DeleteAccount from "./DeleteAccount";
+import { Input, Button, Avatar } from "@mui/material";
 
-function MyProfile({userId, onAccountDelete}) {
+function MyProfile({ userId, onAccountDelete }) {
   const [user, setUser] = useState({});
-  const [deleteAccount, setDeleteAccount] = useState(false)
+  const [deleteAccount, setDeleteAccount] = useState(false);
   const [editMode, setEditMode] = useState("");
   const [editForm, setEditForm] = useState({
     avatar_url: "",
@@ -46,8 +47,8 @@ function MyProfile({userId, onAccountDelete}) {
   }
 
   const imageEditForm = (
-    <form onSubmit={handleAvatarSubmit}>
-      <input
+    <form onSubmit={handleAvatarSubmit} id="edit-avatar-form">
+      <Input
         name="avatar_url"
         type="text"
         placeholder="Edit Avatar Img"
@@ -55,7 +56,7 @@ function MyProfile({userId, onAccountDelete}) {
         onChange={handleChange}
         required
       />
-      <input type="submit" value="Confirm Change" />
+      <Input type="submit" value="Confirm Change" />
     </form>
   );
 
@@ -82,18 +83,27 @@ function MyProfile({userId, onAccountDelete}) {
 
   return (
     <div id="profile-section">
-      <h2 id="my-profile-title">My Profile</h2>
+      <h2 className="content-title">My Profile</h2>
       <div id="icons-div"> {editIcons}</div>
-      <div id="prfile-img-div">
-        <img src={user.avatar_url} alt="profile avatar" id="profile-img" />
+      <div>
+        <Avatar sx={{height: 150 }} src={user.avatar_url} alt="profile avatar" id="profile-img" />
       </div>
       {editMode === "avatarEdit" ? imageEditForm : null}
       <div id="user-details">
         <h3>{user.user_name}</h3>
       </div>
-      {!deleteAccount? null : <DeleteAccount userId={userId} onAccountDelete={onAccountDelete}onCloseClick={() => setDeleteAccount(false)}/>}
-      {deleteAccount? null : <button onClick={() => setDeleteAccount(true)}>Delete account</button>}
- 
+      {!deleteAccount ? null : (
+        <DeleteAccount
+          userId={userId}
+          onAccountDelete={onAccountDelete}
+          onCloseClick={() => setDeleteAccount(false)}
+        />
+      )}
+      {deleteAccount ? null : (
+        <Button variant="outlined" onClick={() => setDeleteAccount(true)}>
+          Delete account
+        </Button>
+      )}
     </div>
   );
 }
