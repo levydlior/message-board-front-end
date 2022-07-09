@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Avatar } from "@mui/material";
+
+
 import {
   AiTwotoneEdit,
   AiTwotoneDelete,
@@ -79,7 +82,7 @@ function Message({ message, loggedInUser, onDeleteMessage, onEditSubmit }) {
 
   const messageInfo = (
     <>
-      <img
+      <Avatar
         className="message-profile-pic"
         src={message.avatar_url}
         alt="profile picture"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Button } from "@mui/material";
+import { Input, Button, Alert } from "@mui/material";
 
 function CreateAccount({
   onInfoChange,
@@ -53,9 +53,9 @@ function CreateAccount({
               onChange={handleChange}
             />
             {existedUserName ? (
-              <h3 style={{ color: "red" }}>
-                User Name already exists please choose another
-              </h3>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+            <Alert severity="error">User name already exist please choose another!</Alert>
+            </div>
             ) : null}
             <label for="login-password">Password:</label>
             <Input
@@ -79,13 +79,8 @@ function CreateAccount({
           </form>
           <div className="have-an-account-login">
             <h3 style={{ margin: "2rem" }}>already have an account?</h3>
-            <Button
-              size="small"
-              variant="outlined"
-              onClick={() => onChangeViewClick()}
-            >
-              Login
-            </Button>
+            <Button size="small"
+          variant="outlined" onClick={() => onChangeViewClick()}>Login</Button>
           </div>
         </>
       );

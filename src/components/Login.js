@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Button } from "@mui/material";
+import { Input, Button, Alert } from "@mui/material";
 
 function Login({
   onInfoChange,
@@ -62,7 +62,9 @@ function Login({
         />
         <Input type="submit" value="Login" />
         {validLogin ? null : (
-          <h3 style={{ color: "red" }}>Invalid user name or password</h3>
+          <div style={{display: 'flex', justifyContent: 'center'}}>
+          <Alert severity="error">Invalid user name or password</Alert>
+          </div>
         )}
       </form>
       <div className="have-an-account-login">

@@ -214,3 +214,10 @@ input {
   padding: 1rem;
   margin: 1rem;
 }
+
+
+#logout-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
