@@ -15,6 +15,7 @@ function DeleteAccount({ onCloseClick, onAccountDelete, userId }) {
         onAccountDelete();
       });
   }
+  
   return (
     <div id="delete-account">
       <div id="delet-exit"></div>
