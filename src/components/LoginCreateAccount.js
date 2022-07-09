@@ -72,7 +72,7 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
           <div style={{display: 'flex', justifyContent: 'center'}}>
           <Alert severity="success">Welcome {loggedInUser.userName}!</Alert>
           </div>
-          <Button sx={{marginLeft: 3}} onClick={handleLogoutClick}>Logout</Button>
+          <Button  onClick={handleLogoutClick}>Logout</Button>
         </div>
       )}
     </div>

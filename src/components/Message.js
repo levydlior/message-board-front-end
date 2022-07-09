@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { Avatar } from "@mui/material";
 
-
-import {
-  AiTwotoneEdit,
-  AiTwotoneDelete,
-  AiOutlineClose,
-} from "react-icons/ai";
+import { AiTwotoneEdit, AiTwotoneDelete, AiOutlineClose } from "react-icons/ai";
 
 function Message({ message, loggedInUser, onDeleteMessage, onEditSubmit }) {
   const [editMode, setEditMode] = useState(false);
@@ -29,17 +24,14 @@ function Message({ message, loggedInUser, onDeleteMessage, onEditSubmit }) {
 
   function icons() {
     return (
-      <>
+      <div>
         {!editMode ? (
           <AiTwotoneEdit className="icons" onClick={handleEditButtonClick} />
         ) : (
-          <AiOutlineClose
-            className="icons"
-            onClick={handleEditButtonClick}
-          />
+          <AiOutlineClose className="icons" onClick={handleEditButtonClick} />
         )}
         <AiTwotoneDelete className="icons" onClick={handleDelete} />
-      </>
+      </div>
     );
   }
 
@@ -82,16 +74,22 @@ function Message({ message, loggedInUser, onDeleteMessage, onEditSubmit }) {
 
   const messageInfo = (
     <>
-      <Avatar
-        className="message-profile-pic"
-        src={message.avatar_url}
-        alt="profile picture"
-      />
-      <h4>{message.user_name}</h4>
-      {!editMode ? <p>{message.content}</p> : editForm}
-      <p>{timestamp}</p>
-      <div className="edit-delete-div">
+      <div id="avatar-userName">
+        <Avatar
+          className="message-profile-pic"
+          src={message.avatar_url}
+          alt="profile picture"
+        />
+        <h4 style={{ margin: "0.5rem" }}>{message.user_name}</h4>
+        <p className="time">-{timestamp}</p>
         {loggedInUser.userId === message.user_id ? icons() : null}
+      </div>
+      <div className="edit-delete-div">
+        {!editMode ? (
+          <p style={{ marginLeft: "3rem" }}>{message.content}</p>
+        ) : (
+          editForm
+        )}
       </div>
     </>
   );
