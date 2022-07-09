@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Input, Button } from "@mui/material";
 
 function Login({
   onInfoChange,
@@ -39,9 +40,11 @@ function Login({
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h2>Login:</h2>
+        <h2 className="content-title">Login:</h2>
+
         <label htmlFor="login-userName">User Name:</label>
-        <input
+        <Input
+          multiline={true}
           name="userName"
           type="text"
           required
@@ -49,22 +52,29 @@ function Login({
           onChange={handleChange}
         />
         <label htmlFor="login-password">Password:</label>
-        <input
+        <Input
+          multiline={true}
           name="password"
           type="password"
           required
           value={formLogIn.password}
           onChange={handleChange}
         />
-        <input type="submit" value="Login" />
+        <Input type="submit" value="Login" />
         {validLogin ? null : (
           <h3 style={{ color: "red" }}>Invalid user name or password</h3>
         )}
       </form>
-      <h2>
-        Dont have an account?{" "}
-        <button onClick={() => onChangeViewClick()}>Create an account</button>
-      </h2>
+      <div className="have-an-account-login">
+        <h3 style={{ margin: "2rem" }}>Dont have an account? </h3>
+        <Button
+          size="small"
+          variant="outlined"
+          onClick={() => onChangeViewClick()}
+        >
+          Create an account
+        </Button>
+      </div>
     </>
   );
 }

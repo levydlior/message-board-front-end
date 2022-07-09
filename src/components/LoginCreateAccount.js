@@ -67,7 +67,7 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
         createOrLogin
       ) : (
         <h2>
-          Welcome {loggedInUser.userName}!{" "}
+          Welcome {loggedInUser.userName}!
           <button onClick={handleLogoutClick}>Logout</button>
         </h2>
       )}

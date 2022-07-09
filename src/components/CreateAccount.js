@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Input, Button } from "@mui/material";
 
 function CreateAccount({
   onInfoChange,
@@ -6,7 +7,7 @@ function CreateAccount({
   createdAccount,
   onCreatedAccount,
   onChangeViewClick,
-  OnresetInputs
+  OnresetInputs,
 }) {
   const [existedUserName, setExistedUserName] = useState(false);
   function handleChange(e) {
@@ -17,7 +18,7 @@ function CreateAccount({
 
   function handleSubmit(e) {
     e.preventDefault();
-    OnresetInputs()
+    OnresetInputs();
     fetch("http://localhost:9292/user/create", {
       method: "POST",
       headers: {
@@ -41,9 +42,10 @@ function CreateAccount({
       return (
         <>
           <form onSubmit={handleSubmit}>
-            <h2>Create An Account:</h2>
+            <h2 className="content-title">Create An Account:</h2>
             <label for="login-userName">User Name:</label>
-            <input
+            <Input
+              multiline={true}
               name="userName"
               type="text"
               required
@@ -56,7 +58,8 @@ function CreateAccount({
               </h3>
             ) : null}
             <label for="login-password">Password:</label>
-            <input
+            <Input
+              multiline={true}
               name="password"
               type="password"
               required
@@ -64,7 +67,7 @@ function CreateAccount({
               onChange={handleChange}
             />
             <label for="avatar_url">Avatar:</label>
-            <input
+            <Input
               placeholder="Image Url"
               name="avatarUrl"
               type="text"
@@ -72,16 +75,28 @@ function CreateAccount({
               value={formLogIn.avatar_url}
               onChange={handleChange}
             />
-            <input type="submit" value="Create account" />
+            <Input type="submit" value="Create account" />
           </form>
-          <h2>
-            already have an account?
-            <button onClick={() => onChangeViewClick()}>Login</button>
-          </h2>
+          <div className="have-an-account-login">
+            <h3 style={{ margin: "2rem" }}>already have an account?</h3>
+            <Button
+              size="small"
+              variant="outlined"
+              onClick={() => onChangeViewClick()}
+            >
+              Login
+            </Button>
+          </div>
         </>
       );
     } else {
-      return <h2> account Created -- please login! <button onClick={() => onChangeViewClick()}>Login</button></h2>;
+      return (
+        <h2>
+          {" "}
+          account Created -- please login!{" "}
+          <button onClick={() => onChangeViewClick()}>Login</button>
+        </h2>
+      );
     }
   }
 
