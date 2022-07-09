@@ -83,10 +83,17 @@ function MyProfile({ userId, onAccountDelete }) {
 
   return (
     <div id="profile-section">
-      <h2 className="content-title">My Profile</h2>
+      <div className="section-title-div">
+        <h2 className="content-title">My Profile</h2>
+      </div>
       <div id="icons-div"> {editIcons}</div>
       <div>
-        <Avatar sx={{height: 150 }} src={user.avatar_url} alt="profile avatar" id="profile-img" />
+        <Avatar
+          sx={{ height: 150 }}
+          src={user.avatar_url}
+          alt="profile avatar"
+          id="profile-img"
+        />
       </div>
       {editMode === "avatarEdit" ? imageEditForm : null}
       <div id="user-details">
@@ -100,7 +107,11 @@ function MyProfile({ userId, onAccountDelete }) {
         />
       )}
       {deleteAccount ? null : (
-        <Button variant="outlined" onClick={() => setDeleteAccount(true)}>
+        <Button
+          variant="outlined"
+          sx={{ borderColor: "black", color: 'black' }}
+          onClick={() => setDeleteAccount(true)}
+        >
           Delete account
         </Button>
       )}

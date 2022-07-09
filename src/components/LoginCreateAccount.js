@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import CreateAccount from "./CreateAccount";
 import Login from "./Login";
-import {Button, Alert } from "@mui/material";
-
+import { Button, Alert } from "@mui/material";
 
 function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
   const [display, setDisplay] = useState(true);
@@ -68,11 +67,16 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
       {!loggedIn ? (
         createOrLogin
       ) : (
-        <div id='logout-div'>
-          <div style={{display: 'flex', justifyContent: 'center'}}>
-          <Alert severity="success">Welcome {loggedInUser.userName}!</Alert>
+        <div id="logout-div">
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Alert severity="success">Welcome {loggedInUser.userName}!</Alert>
           </div>
-          <Button sx={{marginLeft: 3}} onClick={handleLogoutClick}>Logout</Button>
+          <Button
+            sx={{ borderColor: "black", color: "black" }}
+            onClick={handleLogoutClick}
+          >
+            Logout
+          </Button>
         </div>
       )}
     </div>

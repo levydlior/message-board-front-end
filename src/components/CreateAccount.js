@@ -53,9 +53,11 @@ function CreateAccount({
               onChange={handleChange}
             />
             {existedUserName ? (
-            <div style={{display: 'flex', justifyContent: 'center'}}>
-            <Alert severity="error">User name already exist please choose another!</Alert>
-            </div>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <Alert severity="error">
+                  User name already exist please choose another!
+                </Alert>
+              </div>
             ) : null}
             <label for="login-password">Password:</label>
             <Input
@@ -79,8 +81,14 @@ function CreateAccount({
           </form>
           <div className="have-an-account-login">
             <h3 style={{ margin: "2rem" }}>already have an account?</h3>
-            <Button size="small"
-          variant="outlined" onClick={() => onChangeViewClick()}>Login</Button>
+            <Button
+              sx={{ borderColor: "black", color: "black" }}
+              size="small"
+              variant="outlined"
+              onClick={() => onChangeViewClick()}
+            >
+              Login
+            </Button>
           </div>
         </>
       );
@@ -89,7 +97,13 @@ function CreateAccount({
         <h2>
           {" "}
           account Created -- please login!{" "}
-          <button onClick={() => onChangeViewClick()}>Login</button>
+          <Button
+            variant="outlined"
+            sx={{ borderColor: "black", color: "black" }}
+            onClick={() => onChangeViewClick()}
+          >
+            Login
+          </Button>
         </h2>
       );
     }

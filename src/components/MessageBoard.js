@@ -37,7 +37,9 @@ function MessageBoard({ loggedIn, loggedInUser }) {
 
   return (
     <div id="message-board">
+      <div className="section-title-div">
       <h2 className="content-title"> Messages:</h2>
+      </div>
       <div id="messages-display">
         <MessagesList
           messages={messages}

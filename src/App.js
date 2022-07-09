@@ -10,7 +10,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({
     userName: "",
-    userId: ""
+    userId: ''
   });
 
   function handleLogin(user) {

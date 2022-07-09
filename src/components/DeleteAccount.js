@@ -21,10 +21,11 @@ function DeleteAccount({ onCloseClick, onAccountDelete, userId }) {
       <div id="delet-exit"></div>
       <Alert severity="info">Are you sure you want to delete your account?</Alert>
       <div id="delete-account-buttons-div">
-        <Button variant="outlined" size="small" onClick={handleDeleteClick}>
+        <Button sx={{ borderColor: "black", color: 'black' }} 
+        variant="outlined" size="small" onClick={handleDeleteClick}>
           Delete My Account!
         </Button>
-        <Button variant="outlined" size="small" onClick={() => onCloseClick()}>
+        <Button sx={{ borderColor: "black", color: 'black' }} variant="outlined" size="small" onClick={() => onCloseClick()}>
           No
         </Button>
       </div>
