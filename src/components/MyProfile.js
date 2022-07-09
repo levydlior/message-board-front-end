@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AiTwotoneEdit, AiOutlineClose } from "react-icons/ai";
 import DeleteAccount from "./DeleteAccount";
-import { Input, Button } from "@mui/material";
+import { Input, Button, Avatar } from "@mui/material";
 
 function MyProfile({ userId, onAccountDelete }) {
   const [user, setUser] = useState({});
@@ -85,8 +85,8 @@ function MyProfile({ userId, onAccountDelete }) {
     <div id="profile-section">
       <h2 className="content-title">My Profile</h2>
       <div id="icons-div"> {editIcons}</div>
-      <div id="prfile-img-div">
-        <img src={user.avatar_url} alt="profile avatar" id="profile-img" />
+      <div>
+        <Avatar sx={{height: 150 }} src={user.avatar_url} alt="profile avatar" id="profile-img" />
       </div>
       {editMode === "avatarEdit" ? imageEditForm : null}
       <div id="user-details">
