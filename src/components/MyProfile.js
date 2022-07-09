@@ -82,7 +82,7 @@ function MyProfile({userId, onAccountDelete}) {
 
   return (
     <div id="profile-section">
-      <h2>My Profile</h2>
+      <h2 id="my-profile-title">My Profile</h2>
       <div id="icons-div"> {editIcons}</div>
       <div id="prfile-img-div">
         <img src={user.avatar_url} alt="profile avatar" id="profile-img" />

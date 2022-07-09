@@ -1,4 +1,4 @@
-import "./styles/app.css";
+// import "./styles/app.css";
 import { useState } from "react";
 import MessageBoard from "./components/MessageBoard";
 import Header from "./components/Header";
@@ -36,9 +36,9 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div id='app'>
       <Header loggedIn={loggedIn} />
-      <main id="main">
+      <div id="main">
         <Switch>
           <Route exact path="/">
             <MessageBoard loggedIn={loggedIn} loggedInUser={loggedInUser} />
@@ -51,14 +51,14 @@ function App() {
               onLogOut={handleLogOut}
             />
           </Route>
-          <Route exact path="/my-profile">
+          {loggedIn? <Route exact path="/my-profile">
           <MyProfile userId={loggedInUser.userId} onAccountDelete={handleAccountDelete} />
-          </Route>
+          </Route>: null}
           <Route path="*">
             <h1>Error - wrong address</h1>
           </Route>
         </Switch>
-      </main>
+      </div>
     </div>
   );
 }
