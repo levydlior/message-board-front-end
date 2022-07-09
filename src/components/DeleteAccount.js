@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Alert } from "@mui/material";
 
 function DeleteAccount({ onCloseClick, onAccountDelete, userId }) {
   const history = useHistory();
@@ -18,7 +18,7 @@ function DeleteAccount({ onCloseClick, onAccountDelete, userId }) {
   return (
     <div id="delete-account">
       <div id="delet-exit"></div>
-      <h2>Are you sure you want to delete your account?</h2>
+      <Alert severity="info">Are you sure you want to delete your account?</Alert>
       <div id="delete-account-buttons-div">
         <Button variant="outlined" size="small" onClick={handleDeleteClick}>
           Delete My Account!
