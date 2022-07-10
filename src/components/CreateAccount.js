@@ -112,7 +112,7 @@ function CreateAccount({
     } else {
       return (
         <h2>
-          account Created -- please login!{" "}
+          Account Created -- please login!{" "}
           <Button
             variant="outlined"
             sx={{ borderColor: "black", color: "black" }}

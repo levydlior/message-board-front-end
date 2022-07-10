@@ -24,7 +24,7 @@ html {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   position: relative;
   z-index: 10;
-  height: 7rem;
+  /* height: 7rem; */
   background-color: white;
 }
 #head-nav{
@@ -264,6 +264,7 @@ p{
   padding-bottom: 1rem;
   height: 30rem;
   overflow-y: scroll;
+  width: 100%;
 }
 
 .section-title-div{
@@ -289,3 +290,50 @@ p{
   color: black;
 }
 
+@media only screen and (max-width: 390px){
+  #message-board{
+    width: 100%;
+  }
+
+  #login-account{
+    width: 100%;
+  }
+
+
+#logo{
+width: 10rem;
+height: 5rem;
+  }
+
+  h1{
+    font-size: 1.3rem;
+  }
+
+  .time{
+    font-size: 1rem;
+    word-break: keep-all
+  }
+
+  .message-box{
+    display: flex;
+    justify-content: center;
+  
+  }
+
+  p{
+    word-break: break-all;
+  }
+
+.icons-div{
+  display: flex;
+}
+
+#main{
+  display: flex;
+  justify-content: space-between;
+}
+
+#profile-section {
+  width: 100%
+}
+}

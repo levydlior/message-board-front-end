@@ -53,7 +53,6 @@ function Login({
           sx={{ outlineColor: "black" }}
         />
         <TextField
-          multiline={true}
           name="password"
           type="password"
           required
@@ -69,6 +68,7 @@ function Login({
                 borderColor: "black",
                 width: "30%",
                 marginTop: "1rem",
+                marginBottom: "1rem"
               }}
               type="submit"
               value="post"
