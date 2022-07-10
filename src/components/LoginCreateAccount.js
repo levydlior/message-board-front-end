@@ -12,12 +12,6 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
     avatarUrl: "",
   });
 
-  function handleLogoutClick() {
-    setCreatedAccount(false);
-    resetInputs();
-    onLogOut();
-  }
-
   function resetInputs() {
     setFormLogin({
       userName: "",
@@ -68,15 +62,13 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
         createOrLogin
       ) : (
         <div id="logout-div">
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Alert severity="success">Welcome {loggedInUser.userName}!</Alert>
-          </div>
-          <Button
-            sx={{ borderColor: "black", color: "black" }}
-            onClick={handleLogoutClick}
+          <Alert
+            severity="success"
+            style={{ display: "flex", justifyContent: "center" }}
           >
-            Logout
-          </Button>
+            Logged in
+          </Alert>
+          <h2>Welcome {loggedInUser.userName}!</h2>
         </div>
       )}
     </div>

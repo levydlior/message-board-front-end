@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AiTwotoneEdit, AiOutlineClose } from "react-icons/ai";
 import DeleteAccount from "./DeleteAccount";
-import { Input, Button, Avatar } from "@mui/material";
+import { Input, Button, Avatar, TextField } from "@mui/material";
 
 function MyProfile({ userId, onAccountDelete }) {
   const [user, setUser] = useState({});
@@ -48,15 +48,28 @@ function MyProfile({ userId, onAccountDelete }) {
 
   const imageEditForm = (
     <form onSubmit={handleAvatarSubmit} id="edit-avatar-form">
-      <Input
-        name="avatar_url"
-        type="text"
-        placeholder="Edit Avatar Img"
-        value={editForm.avatar_url}
-        onChange={handleChange}
-        required
-      />
-      <Input type="submit" value="Confirm Change" />
+       <TextField
+          label="Edit Avatar Img"
+          name="avatar_url"
+          type="text"
+          required
+          value={editForm.avatar_url}
+          onChange={handleChange}
+          style={{ marginInline: "1rem" }}
+          sx={{ outlineColor: "black" }}
+          size="small"
+        />
+        <Button
+              style={{
+                color: "black",
+                borderColor: "black",
+              }}
+              type="submit"
+             
+              variant="outlined"
+            >
+              Confirm Change
+            </Button>
     </form>
   );
 
@@ -109,7 +122,7 @@ function MyProfile({ userId, onAccountDelete }) {
       {deleteAccount ? null : (
         <Button
           variant="outlined"
-          sx={{ borderColor: "black", color: 'black' }}
+          sx={{ borderColor: "black", color: "black" }}
           onClick={() => setDeleteAccount(true)}
         >
           Delete account

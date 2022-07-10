@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "./NavBar";
 
-function Header({ loggedIn }) {
+function Header({ loggedIn, onLogout }) {
   return (
     <header id="header">
       <div id="logo-div">
@@ -11,7 +11,7 @@ function Header({ loggedIn }) {
         />
         <h1>Leave a message!</h1>
       </div>
-      <NavBar loggedIn={loggedIn} />
+      <NavBar loggedIn={loggedIn} onLogout={onLogout} />
     </header>
   );
 }

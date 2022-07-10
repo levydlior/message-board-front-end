@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Message from "./Message";
 
 function MessagesList({
@@ -17,7 +17,19 @@ function MessagesList({
     />
   ));
 
-  return <ul>{displayMessages}</ul>;
+  const bottomRef = useRef(null);
+
+  useEffect(() => {
+    // 👇️ scroll to bottom every time messages change
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  return (
+    <ul id="message-ul">
+      {displayMessages}
+      <div ref={bottomRef} />
+    </ul>
+  );
 }
 
 export default MessagesList;
