@@ -110,7 +110,7 @@ function MyProfile({ userId, onAccountDelete }) {
       </div>
       {editMode === "avatarEdit" ? imageEditForm : null}
       <div id="user-details">
-        <h3>{user.user_name}</h3>
+        <h3>User Name: {user.user_name}</h3>
       </div>
       {!deleteAccount ? null : (
         <DeleteAccount
