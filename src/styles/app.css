@@ -216,6 +216,8 @@ input {
 #edit-avatar-form {
   padding: 1rem;
   margin: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 

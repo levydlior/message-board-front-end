@@ -7,10 +7,10 @@ import LoginCreateAccount from "./components/LoginCreateAccount";
 import MyProfile from "./components/MyProfile";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [loggedInUser, setLoggedInUser] = useState({
-    userName: "",
-    userId: "",
+    userName: "a",
+    userId: 10,
   });
 
   const history = useHistory();
