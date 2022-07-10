@@ -2,7 +2,7 @@
 import { useState } from "react";
 import MessageBoard from "./components/MessageBoard";
 import Header from "./components/Header";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import LoginCreateAccount from "./components/LoginCreateAccount";
 import MyProfile from "./components/MyProfile";
 
@@ -10,8 +10,10 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState({
     userName: "",
-    userId: ''
+    userId: "",
   });
+
+  const history = useHistory();
 
   function handleLogin(user) {
     setLoggedIn(true);
@@ -24,20 +26,20 @@ function App() {
       userName: "",
       userId: "",
     });
+    history.push("/create-login");
   }
 
-  function handleAccountDelete(){
-    setLoggedIn(false)
+  function handleAccountDelete() {
+    setLoggedIn(false);
     setLoggedInUser({
       userName: "",
-      userId: '',
-    })
+      userId: "",
+    });
   }
 
-
   return (
-    <div id='app'>
-      <Header loggedIn={loggedIn} />
+    <div id="app">
+      <Header loggedIn={loggedIn} onLogout={handleLogOut} />
       <div id="main">
         <Switch>
           <Route exact path="/">
@@ -51,9 +53,14 @@ function App() {
               onLogOut={handleLogOut}
             />
           </Route>
-          {loggedIn? <Route exact path="/my-profile">
-          <MyProfile userId={loggedInUser.userId} onAccountDelete={handleAccountDelete} />
-          </Route>: null}
+          {loggedIn ? (
+            <Route exact path="/my-profile">
+              <MyProfile
+                userId={loggedInUser.userId}
+                onAccountDelete={handleAccountDelete}
+              />
+            </Route>
+          ) : null}
           <Route path="*">
             <h1>Error - wrong address</h1>
           </Route>
