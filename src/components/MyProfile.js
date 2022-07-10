@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AiTwotoneEdit, AiOutlineClose } from "react-icons/ai";
 import DeleteAccount from "./DeleteAccount";
-import { Input, Button, Avatar, TextField } from "@mui/material";
+import { Button, Avatar, TextField } from "@mui/material";
 
 function MyProfile({ userId, onAccountDelete }) {
   const [user, setUser] = useState({});
