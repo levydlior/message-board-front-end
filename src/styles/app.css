@@ -27,6 +27,15 @@ html {
   height: 7rem;
   background-color: white;
 }
+#head-nav{
+  width: 40%;
+}
+
+#head-ul{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
 
 #logo-div {
   width: 65%;
@@ -112,8 +121,9 @@ a {
   padding: 0.5rem;
   margin: 0.5rem;
   text-decoration: none;
-  width: 5rem;
 }
+
+
 
 #login-account {
   border: solid black 1px;
@@ -273,5 +283,9 @@ p{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.active{
+  color: black;
 }
 

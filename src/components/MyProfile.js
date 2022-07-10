@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AiTwotoneEdit, AiOutlineClose } from "react-icons/ai";
 import DeleteAccount from "./DeleteAccount";
-import { Input, Button, Avatar, TextField } from "@mui/material";
+import { Button, Avatar, TextField } from "@mui/material";
 
 function MyProfile({ userId, onAccountDelete }) {
   const [user, setUser] = useState({});
@@ -110,7 +110,7 @@ function MyProfile({ userId, onAccountDelete }) {
       </div>
       {editMode === "avatarEdit" ? imageEditForm : null}
       <div id="user-details">
-        <h3>{user.user_name}</h3>
+        <h3>User Name: {user.user_name}</h3>
       </div>
       {!deleteAccount ? null : (
         <DeleteAccount
