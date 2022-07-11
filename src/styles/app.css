@@ -9,7 +9,6 @@
 body {
   height: 100%;
   background-color: #e9d9c9;
-
 }
 
 html {
@@ -21,17 +20,18 @@ html {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   position: relative;
   z-index: 10;
   /* height: 7rem; */
   background-color: white;
 }
-#head-nav{
+#head-nav {
   width: 40%;
 }
 
-#head-ul{
+#head-ul {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
@@ -81,8 +81,8 @@ li {
   flex-flow: column;
   justify-content: space-between;
   background-color: white;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 #messages-display {
@@ -123,8 +123,6 @@ a {
   text-decoration: none;
 }
 
-
-
 #login-account {
   border: solid black 1px;
   display: flex;
@@ -133,7 +131,8 @@ a {
   flex-flow: column;
   justify-content: space-between;
   background-color: white;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   padding: 1.5rem;
 }
 
@@ -196,11 +195,8 @@ input {
   padding: 0.5rem;
 }
 
-
-
 .MuiInput-root {
   margin-inline: 1rem;
-  
 }
 
 .content-title {
@@ -208,7 +204,15 @@ input {
   margin-top: 1rem;
 }
 
-.have-an-account-login{
+#burger-button-div {
+  display: none;
+}
+
+#basic-menu {
+  display: none;
+}
+
+.have-an-account-login {
   display: flex;
   justify-content: center;
   padding: 1rem;
@@ -230,111 +234,129 @@ input {
   align-items: center;
 }
 
-
 #logout-div {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-
-
-#avatar-userName{
+#avatar-userName {
   display: flex;
   align-items: center;
 }
 
-.time{
+.time {
   font-size: 0.8rem;
   margin: 0.5rem;
 }
 
-.edit-delete-div{
+.edit-delete-div {
   display: flex;
   justify-content: space-between;
 }
 
-p{
-  word-break: break-all;
-  word-wrap: break-word;
+p {
+  word-break: normal;
 }
 
-#message-ul{
+#message-ul {
   margin: 0;
-  padding-inline: 3rem;
+  padding-inline: 1rem;
   padding-bottom: 1rem;
   height: 30rem;
   overflow-y: scroll;
   width: 100%;
 }
 
-.section-title-div{
+.section-title-div {
   border-bottom: solid 1px black;
   margin-bottom: 1rem;
   width: 100%;
   background-color: #dbd3cb;
 }
 
-.MuiButton-outlined{
+.MuiButton-outlined {
   border-color: black;
-  color: black
+  color: black;
 }
 
-
-#create-account-login-form{
+#create-account-login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.active{
+.active {
   color: black;
 }
 
-@media only screen and (max-width: 390px){
-  #message-board{
+@media only screen and (max-width: 414px) {
+  #message-board {
     width: 100%;
   }
 
-  #login-account{
+  #login-account {
     width: 100%;
   }
 
-
-#logo{
-width: 10rem;
-height: 5rem;
+  #logo {
+    width: 10rem;
+    height: 5rem;
   }
 
-  h1{
+  h1 {
     font-size: 1.3rem;
   }
 
-  .time{
-    font-size: 1rem;
-    word-break: keep-all
+  .time {
+    font-size: 0.6rem;
+    word-break: keep-all;
   }
 
-  .message-box{
+  .message-box {
     display: flex;
     justify-content: center;
-  
   }
 
-  p{
-    word-break: break-all;
+  p {
+    word-break: normal;
   }
 
-.icons-div{
-  display: flex;
-}
+  .icons-div {
+    display: flex;
+  }
 
-#main{
-  display: flex;
-  justify-content: space-between;
-}
+  #main {
+    display: flex;
+    justify-content: space-between;
+  }
 
-#profile-section {
-  width: 100%
-}
+  #profile-section {
+    width: 100%;
+  }
+
+  #head-nav {
+    display: none;
+  }
+
+  #burger-ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #basic-menu {
+    display: block;
+  }
+
+  #burger-button-div {
+    display: flex;
+  }
+
+  #account-created-respon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    height: 10rem;
+  }
 }

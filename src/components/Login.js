@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Button, Alert, TextField } from "@mui/material";
+import {Button, Alert, TextField } from "@mui/material";
 
 function Login({
   onInfoChange,
@@ -39,11 +39,10 @@ function Login({
 
   return (
     <>
-      <form id='create-account-login-form' onSubmit={handleSubmit}>
+      <form id="create-account-login-form" onSubmit={handleSubmit}>
         <h2 className="content-title">Login:</h2>
         <TextField
           label="User Name"
-          multiline={true}
           name="userName"
           type="text"
           required
@@ -59,24 +58,23 @@ function Login({
           value={formLogIn.password}
           onChange={handleChange}
           label="Password"
-          style={{ marginBottom: "1rem", marginInline: '1rem' }}
-          sx={{ outlineColor: "black", color: 'black' }}
+          style={{ marginBottom: "1rem" }}
+          sx={{ outlineColor: "black", color: "black" }}
         />
         <Button
-              style={{
-                color: "black",
-                borderColor: "black",
-                width: "30%",
-                marginTop: "1rem",
-                marginBottom: "1rem"
-              }}
-              type="submit"
-              value="post"
-              variant="outlined"
-            >
-              Login
-            </Button>
-      
+          style={{
+            color: "black",
+            borderColor: "black",
+            width: "30%",
+            marginTop: "1rem",
+            marginBottom: "1rem",
+          }}
+          type="submit"
+          value="post"
+          variant="outlined"
+        >
+          Login
+        </Button>
 
         {validLogin ? null : (
           <div style={{ display: "flex", justifyContent: "center" }}>
