@@ -68,10 +68,13 @@ It was interesting and definitely challenging to work on this project by myself.
 <li>Lastly a thing that will be good to add to the message board will be infinite scroll- at the moment there are only a few messages which is not a problem but if we would have had 100 messages for example it might take longer for our fetch request.</li>
 </ul>
  
-# Contacts
- 
+# Contacts 
 Created by <br>
 <a href="https://www.linkedin.com/in/liordl/" target="_blank">Lior Levy</a><br>
+ 
+ To see it in action: 
+ <a href="https://www.loom.com/share/bb262cb67a3a4f34afcc49eb7fd89d8b" target="_blank">Video example</a><br>
+ 
  
 web logo has been taken from:
 https://www.vectorstock.com/royalty-free-vector/items-pinned-to-a-cork-message-board-vector-7624281
