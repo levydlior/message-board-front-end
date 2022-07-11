@@ -64,7 +64,7 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
         <div id="logout-div">
           <Alert
             severity="success"
-            style={{ display: "flex", justifyContent: "center" }}
+            style={{ display: "flex", justifyContent: "center", marginBottom: '2rem' }}
           >
             Logged in
           </Alert>
