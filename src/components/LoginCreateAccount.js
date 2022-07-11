@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import CreateAccount from "./CreateAccount";
 import Login from "./Login";
-import {Button, Alert } from "@mui/material";
-
+import {Alert } from "@mui/material";
 
 function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
   const [display, setDisplay] = useState(true);
@@ -12,12 +11,6 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
     password: "",
     avatarUrl: "",
   });
-
-  function handleLogoutClick() {
-    setCreatedAccount(false);
-    resetInputs();
-    onLogOut();
-  }
 
   function resetInputs() {
     setFormLogin({
@@ -68,11 +61,14 @@ function LoginCreateAccount({ onLogin, loggedIn, loggedInUser, onLogOut }) {
       {!loggedIn ? (
         createOrLogin
       ) : (
-        <div id='logout-div'>
-          <div style={{display: 'flex', justifyContent: 'center'}}>
-          <Alert severity="success">Welcome {loggedInUser.userName}!</Alert>
-          </div>
-          <Button sx={{marginLeft: 3}} onClick={handleLogoutClick}>Logout</Button>
+        <div id="logout-div">
+          <Alert
+            severity="success"
+            style={{ display: "flex", justifyContent: "center", marginBottom: '2rem' }}
+          >
+            Logged in
+          </Alert>
+          <h2>Welcome {loggedInUser.userName}!</h2>
         </div>
       )}
     </div>

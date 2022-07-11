@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Button, Alert } from "@mui/material";
+import { Input, Button, Alert, TextField } from "@mui/material";
 
 function CreateAccount({
   onInfoChange,
@@ -41,55 +41,85 @@ function CreateAccount({
     if (!createdAccount) {
       return (
         <>
-          <form onSubmit={handleSubmit}>
+          <form id="create-account-login-form" onSubmit={handleSubmit}>
             <h2 className="content-title">Create An Account:</h2>
-            <label for="login-userName">User Name:</label>
-            <Input
-              multiline={true}
-              name="userName"
-              type="text"
+            <TextField
+              style={{ marginBottom: "1rem" }}
               required
+              id="outlined-required"
+              label="User Name"
               value={formLogIn.user_name}
               onChange={handleChange}
+              multiline={true}
+              name="userName"
+              sx={{ outlineColor: "black" }}
             />
             {existedUserName ? (
-            <div style={{display: 'flex', justifyContent: 'center'}}>
-            <Alert severity="error">User name already exist please choose another!</Alert>
-            </div>
+              <div>
+                <Alert severity="error">
+                  User name already exist please choose another!
+                </Alert>
+              </div>
             ) : null}
-            <label for="login-password">Password:</label>
-            <Input
-              multiline={true}
+            <TextField
+              style={{ marginBottom: "1rem" }}
+              required
+              label="Password"
               name="password"
               type="password"
-              required
               value={formLogIn.password}
               onChange={handleChange}
+              sx={{ outlineColor: "black" }}
             />
-            <label for="avatar_url">Avatar:</label>
-            <Input
-              placeholder="Image Url"
+
+            <TextField
               name="avatarUrl"
               type="text"
               required
+              label="Avatar URL"
               value={formLogIn.avatar_url}
               onChange={handleChange}
+              style={{ marginBottom: "1rem" }}
+              sx={{ outlineColor: "black" }}
             />
-            <Input type="submit" value="Create account" />
+            <Button
+              style={{
+                color: "black",
+                borderColor: "black",
+                width: "25%",
+                marginTop: "1rem",
+              }}
+              type="submit"
+              value="post"
+              variant="outlined"
+            >
+              Create
+            </Button>
           </form>
           <div className="have-an-account-login">
             <h3 style={{ margin: "2rem" }}>already have an account?</h3>
-            <Button size="small"
-          variant="outlined" onClick={() => onChangeViewClick()}>Login</Button>
+            <Button
+              sx={{ borderColor: "black", color: "black" }}
+              size="small"
+              variant="outlined"
+              onClick={() => onChangeViewClick()}
+            >
+              Login
+            </Button>
           </div>
         </>
       );
     } else {
       return (
         <h2>
-          {" "}
-          account Created -- please login!{" "}
-          <button onClick={() => onChangeViewClick()}>Login</button>
+          Account Created -- please login!{" "}
+          <Button
+            variant="outlined"
+            sx={{ borderColor: "black", color: "black" }}
+            onClick={() => onChangeViewClick()}
+          >
+            Login
+          </Button>
         </h2>
       );
     }

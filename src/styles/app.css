@@ -8,7 +8,7 @@
 
 body {
   height: 100%;
-  background-color: #f6efe8;
+  background-color: #e9d9c9;
 
 }
 
@@ -24,8 +24,17 @@ html {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   position: relative;
   z-index: 10;
-  height: 7rem;
+  /* height: 7rem; */
   background-color: white;
+}
+#head-nav{
+  width: 40%;
+}
+
+#head-ul{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 #logo-div {
@@ -58,21 +67,22 @@ li {
   justify-content: center;
   text-align: center;
   padding: 0.5rem;
-  background-color: #f6efe8;
+  background-color: #e9d9c9;
   margin: 0rem;
   height: 100%;
   margin: 2rem;
 }
 
 #message-board {
-  border: solid black;
+  border: solid black 1px;
   display: flex;
   width: 50%;
   height: 80%;
   flex-flow: column;
   justify-content: space-between;
   background-color: white;
-  padding: 1.5rem
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
 }
 
 #messages-display {
@@ -83,8 +93,9 @@ li {
   display: flex;
   flex-flow: column;
   padding: 0.5rem;
-  margin: 0.5rem;
   width: 100%;
+  border-top: solid black 1px;
+  background-color: #dbd3cb;
 }
 
 input {
@@ -110,8 +121,9 @@ a {
   padding: 0.5rem;
   margin: 0.5rem;
   text-decoration: none;
-  width: 5rem;
 }
+
+
 
 #login-account {
   border: solid black 1px;
@@ -137,7 +149,7 @@ a {
   flex-flow: column;
   align-items: center;
   background-color: white;
-  padding: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 #prfile-img-div {
@@ -192,7 +204,7 @@ input {
 }
 
 .content-title {
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   margin-top: 1rem;
 }
 
@@ -200,6 +212,7 @@ input {
   display: flex;
   justify-content: center;
   padding: 1rem;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -213,6 +226,8 @@ input {
 #edit-avatar-form {
   padding: 1rem;
   margin: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 
@@ -220,4 +235,106 @@ input {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+
+
+#avatar-userName{
+  display: flex;
+  align-items: center;
+}
+
+.time{
+  font-size: 0.8rem;
+  margin: 0.5rem;
+}
+
+.edit-delete-div{
+  display: flex;
+  justify-content: space-between;
+}
+
+p{
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+#message-ul{
+  margin: 0;
+  padding-inline: 3rem;
+  padding-bottom: 1rem;
+  height: 30rem;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.section-title-div{
+  border-bottom: solid 1px black;
+  margin-bottom: 1rem;
+  width: 100%;
+  background-color: #dbd3cb;
+}
+
+.MuiButton-outlined{
+  border-color: black;
+  color: black
+}
+
+
+#create-account-login-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.active{
+  color: black;
+}
+
+@media only screen and (max-width: 390px){
+  #message-board{
+    width: 100%;
+  }
+
+  #login-account{
+    width: 100%;
+  }
+
+
+#logo{
+width: 10rem;
+height: 5rem;
+  }
+
+  h1{
+    font-size: 1.3rem;
+  }
+
+  .time{
+    font-size: 1rem;
+    word-break: keep-all
+  }
+
+  .message-box{
+    display: flex;
+    justify-content: center;
+  
+  }
+
+  p{
+    word-break: break-all;
+  }
+
+.icons-div{
+  display: flex;
+}
+
+#main{
+  display: flex;
+  justify-content: space-between;
+}
+
+#profile-section {
+  width: 100%
+}
 }

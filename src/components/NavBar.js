@@ -1,27 +1,48 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function NavBar({ loggedIn }) {
+function NavBar({ loggedIn, onLogout }) {
   const displayLink = loggedIn ? (
-    <NavLink className="nav-links" exact to="/my-profile">
+    <NavLink
+      className={({ isActive }) => (isActive ? "active" : "inactive")}
+      exact
+      to="/my-profile"
+    >
       My Profile
     </NavLink>
   ) : null;
+  function handleClick(e) {
+    e.preventDefault();
+    onLogout();
+  }
 
   return (
-    <nav>
+    <nav id="head-nav">
       <ul id="head-ul">
-        <NavLink className="nav-links" exact to="/">
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "inactive")}
+          exact
+          to="/"
+        >
           Message Board
         </NavLink>
         {displayLink}
         {!loggedIn ? (
-          <NavLink className="nav-links" exact to="/create-login">
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
+            exact
+            to="/create-login"
+          >
             Login/ Create an Account
           </NavLink>
         ) : (
-          <NavLink className="nav-links" exact to="/create-login">
-           Logout
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "inactive")}
+            exact
+            to="/create-login"
+            onClick={handleClick}
+          >
+            Logout
           </NavLink>
         )}
       </ul>

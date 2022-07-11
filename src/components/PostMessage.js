@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Input, Button } from "@mui/material";
+import { Input, Button, TextField } from "@mui/material";
+import SendRoundedIcon from "@mui/icons-material/SendRounded";
 
 function PostMessage({ loggedIn, loggedInUser, onNewPostSubmit }) {
   const [postInput, setPostInput] = useState({
@@ -37,17 +38,33 @@ function PostMessage({ loggedIn, loggedInUser, onNewPostSubmit }) {
   const postForm = (
     <form onSubmit={hanldeSubmit}>
       <h3 style={{ margin: "1rem" }}> Post a message!</h3>
-      <input
-        type="text"
-        required
-        id="new-meesage-input"
-        name="content"
-        value={postInput.content}
-        onChange={handleChange}
-      />
-      <input type="submit"
-        value="post"
-      />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <TextField
+          sx={{ width: 500}}
+          multiline={true}
+          id="outlined-basic"
+          variant="outlined"
+          required
+          name="content"
+          value={postInput.content}
+          onChange={handleChange}
+          size="small"
+        />
+        <Button
+          style={{ marginLeft: "2rem", color: 'yellow', borderColor: 'black' }}
+          type="submit"
+          value="post"
+          variant="outlined"
+        >
+          <SendRoundedIcon sx={{color: 'black'}}/>{" "}
+        </Button>
+      </div>
     </form>
   );
 
