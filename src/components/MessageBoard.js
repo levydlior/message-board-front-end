@@ -25,7 +25,7 @@ function MessageBoard({ loggedIn, loggedInUser }) {
 
   function handleEditSubmit(updatedMessage) {
     const updatesMessages = messages.map((message) => {
-      if (updatedMessage.id == message.id) {
+      if (updatedMessage.id === message.id) {
         return updatedMessage;
       } else {
         return message;

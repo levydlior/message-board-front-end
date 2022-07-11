@@ -82,7 +82,7 @@ function Message({ message, loggedInUser, onDeleteMessage, onEditSubmit }) {
           sx={{ width: 56, height: 56 }}
         />
         <h4 style={{ margin: "0.5rem" }}>{message.user_name}</h4>
-        <p className="time">-{timestamp}</p>
+        <p className="time"> {timestamp}</p>
         {loggedInUser.userId === message.user_id ? icons() : null}
       </div>
       <div className="edit-delete-div">

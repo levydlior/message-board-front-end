@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function NavBar({ loggedIn, onLogout }) {
+function NavBar({ loggedIn, onLogout, idName, ulIdName }) {
   const displayLink = loggedIn ? (
     <NavLink
       className={({ isActive }) => (isActive ? "active" : "inactive")}
@@ -17,8 +17,8 @@ function NavBar({ loggedIn, onLogout }) {
   }
 
   return (
-    <nav id="head-nav">
-      <ul id="head-ul">
+    <nav id={idName}>
+      <ul id={ulIdName}>
         <NavLink
           className={({ isActive }) => (isActive ? "active" : "inactive")}
           exact
