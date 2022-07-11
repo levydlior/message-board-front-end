@@ -9,8 +9,8 @@ import MyProfile from "./components/MyProfile";
 function App() {
   const [loggedIn, setLoggedIn] = useState(true);
   const [loggedInUser, setLoggedInUser] = useState({
-    userName: "a",
-    userId: 10,
+    userName: "Avo",
+    userId: 14,
   });
 
   const history = useHistory();

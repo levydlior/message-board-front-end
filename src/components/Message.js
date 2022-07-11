@@ -24,7 +24,7 @@ function Message({ message, loggedInUser, onDeleteMessage, onEditSubmit }) {
 
   function icons() {
     return (
-      <div>
+      <div className="icons-div">
         {!editMode ? (
           <AiTwotoneEdit className="icons" onClick={handleEditButtonClick} />
         ) : (
@@ -79,6 +79,7 @@ function Message({ message, loggedInUser, onDeleteMessage, onEditSubmit }) {
           className="message-profile-pic"
           src={message.avatar_url}
           alt="profile picture"
+          sx={{ width: 56, height: 56 }}
         />
         <h4 style={{ margin: "0.5rem" }}>{message.user_name}</h4>
         <p className="time">-{timestamp}</p>
@@ -86,7 +87,7 @@ function Message({ message, loggedInUser, onDeleteMessage, onEditSubmit }) {
       </div>
       <div className="edit-delete-div">
         {!editMode ? (
-          <p style={{ marginLeft: "3rem" }}>{message.content}</p>
+          <p style={{ marginLeft: "4rem" }}>{message.content}</p>
         ) : (
           editForm
         )}
