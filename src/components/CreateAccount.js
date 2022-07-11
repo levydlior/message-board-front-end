@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Button, Alert, TextField } from "@mui/material";
+import { Button, Alert, TextField } from "@mui/material";
 
 function CreateAccount({
   onInfoChange,
@@ -50,13 +50,12 @@ function CreateAccount({
               label="User Name"
               value={formLogIn.user_name}
               onChange={handleChange}
-              multiline={true}
               name="userName"
               sx={{ outlineColor: "black" }}
             />
             {existedUserName ? (
               <div>
-                <Alert severity="error">
+                <Alert severity="error" style={{ marginBottom: "1rem" }}>
                   User name already exist please choose another!
                 </Alert>
               </div>
@@ -111,16 +110,17 @@ function CreateAccount({
       );
     } else {
       return (
-        <h2>
-          Account Created -- please login!{" "}
+        <div id="account-created-respon">
+          <h2 style={{marginBottom: '1rem'}}>Account Created -- please login! </h2>
           <Button
+          style={{width: '50%'}}
             variant="outlined"
             sx={{ borderColor: "black", color: "black" }}
             onClick={() => onChangeViewClick()}
           >
             Login
           </Button>
-        </h2>
+        </div>
       );
     }
   }

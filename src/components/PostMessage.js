@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Button, TextField } from "@mui/material";
+import {Button, TextField } from "@mui/material";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 
 function PostMessage({ loggedIn, loggedInUser, onNewPostSubmit }) {

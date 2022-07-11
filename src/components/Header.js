@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "./NavBar";
+import BasicMenu from "./BasicMenu";
 
 function Header({ loggedIn, onLogout }) {
   return (
@@ -11,7 +12,8 @@ function Header({ loggedIn, onLogout }) {
         />
         <h1>Leave a message!</h1>
       </div>
-      <NavBar loggedIn={loggedIn} onLogout={onLogout} />
+      <NavBar loggedIn={loggedIn} onLogout={onLogout} idName="head-nav" ulIdName="head-ul" />
+      <BasicMenu loggedIn={loggedIn} onLogout={onLogout}/>
     </header>
   );
 }
